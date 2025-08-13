@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BeyondApp – Musikplayer</title>
+  <meta name="description" content="BeyondApp – moderner Musikplayer mit Webradio, Playlists und mehr." />
+  <link rel="icon" href="assets/icon.png" />
+  <style>
+    :root{
+      --bg:#0b1220;          /* sehr dunkles Blau */
+      --bg-soft:#111a2e;     /* Karten-Hintergrund */
+      --text:#dfefff;        /* heller Text */
+      --muted:#92b6ff;       /* gedämpfter Text */
+      --accent:#4da3ff;      /* Akzent Hellblau */
+      --accent-2:#1e3a8a;    /* sattes Blau */
+      --success:#22c55e;     /* Grün */
+      --border:#1f2937;      /* Rahmen */
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%}
+    body{font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:linear-gradient(180deg, #0a1426 0%, var(--bg) 30%, #0a1222 100%); color:var(--text);}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{opacity:.9}
+    .container{max-width:1100px; margin:0 auto; padding:0 20px}
+
+    /* Header */
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(8px); background:rgba(9,13,24,.6); border-bottom:1px solid rgba(77,163,255,.12)}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px}
+    .brand img{width:28px; height:28px; border-radius:8px}
+    .nav a{color:var(--text)}
+    .nav-links{display:flex; gap:18px; align-items:center}
+    .ghost{background:transparent; border:1px solid rgba(77,163,255,.3); padding:10px 14px; border-radius:12px}
+
+    /* Hero */
+    .hero{padding:72px 0 42px}
+    .hero-wrap{display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center}
+    .title{font-size:44px; line-height:1.1; margin:0 0 12px; font-weight:900}
+    .subtitle{color:var(--muted); font-size:18px; margin:0 0 26px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:14px; border:1px solid rgba(77,163,255,.3); background:linear-gradient(180deg, rgba(77,163,255,.15), rgba(77,163,255,.08)); color:var(--text); box-shadow:var(--shadow); cursor:pointer}
+    .btn:active{transform:translateY(1px)}
+    .btn.primary{background:linear-gradient(180deg, #4da3ff, #2f79d6); color:#061024; border-color:transparent}
+    .btn.success{background:linear-gradient(180deg, #22c55e, #16a34a); color:#041007; border-color:transparent}
+    .hero-card{background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .mock{aspect-ratio:16/10; width:100%; border-radius:12px; border:1px solid rgba(255,255,255,.06); background:linear-gradient(135deg, #152341, #0d1a33); display:grid; place-items:center; color:var(--muted)}
+
+    /* Sections */
+    section{padding:38px 0}
+    .section-title{font-size:26px; margin:0 0 14px; font-weight:800}
+    .grid{display:grid; gap:16px}
+    .grid.cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .card{background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .card h3{margin:0 0 6px}
+    .meta{color:var(--muted); font-size:14px}
+
+    /* Download panel */
+    .download{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+    .dl-card{display:flex; flex-direction:column; gap:10px}
+    .dl-actions{display:flex; flex-wrap:wrap; gap:10px}
+    .tag{font-size:12px; padding:4px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.1); width:max-content; color:var(--muted)}
+
+    /* Footer */
+    footer{border-top:1px solid rgba(77,163,255,.12); padding:28px 0 44px; color:#bcd3ff}
+    .footer-grid{display:grid; grid-template-columns:2fr 1fr; gap:18px}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-wrap{grid-template-columns:1fr}
+      .grid.cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .download{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .title{font-size:34px}
+      .grid.cards{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="assets/icon.png" alt="BeyondApp Icon" />
+        <span>BeyondApp</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#download">Download</a>
+        <a href="#faq">FAQ</a>
+        <a class="ghost" href="https://github.com/DEIN-USER/DEIN-REPO" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div>
+          <h1 class="title">BeyondApp – Dein Musikplayer mit Webradio</h1>
+          <p class="subtitle">Dunkelblaues Design, flüssige Bedienung und Streaming per VLC. Playlists, Suchfunktion, Webradio-Presets und mehr.</p>
+          <div class="cta">
+            <a class="btn primary" href="#download">Jetzt herunterladen</a>
+            <a class="btn" href="https://github.com/DEIN-USER/DEIN-REPO" target="_blank" rel="noopener">Quellcode ansehen</a>
+          </div>
+          <div class="meta" style="margin-top:10px">Aktuelle Version: <strong>v1.0.0</strong> · Lizenz: MIT</div>
+        </div>
+        <div class="hero-card">
+          <div class="mock">Screenshot / App-Vorschau (PNG hier ablegen)</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <h2 class="section-title">Highlights</h2>
+        <div class="grid cards">
+          <article class="card">
+            <h3>Webradio & Streams</h3>
+            <p class="meta">Favoriten, Suche und schnelle Senderwechsel. Unterstützt gängige AAC/MP3-Streams.</p>
+          </article>
+          <article class="card">
+            <h3>VLC Engine</h3>
+            <p class="meta">Zuverlässige Wiedergabe dank libVLC – auch für längere Sessions und viele Formate.</p>
+          </article>
+          <article class="card">
+            <h3>Dunkles Theme</h3>
+            <p class="meta">Klares, lesbares UI in satten Blautönen. Fokus auf Tastatur & Maus-Usability.</p>
+          </article>
+          <article class="card">
+            <h3>Playlist-Management</h3>
+            <p class="meta">Einfaches Hinzufügen, Entfernen und Sortieren. Fortschritt speichert in AppData.</p>
+          </article>
+          <article class="card">
+            <h3>Portable/Installer</h3>
+            <p class="meta">Läuft als Portable-App oder als Installer mit Autoupdate-Optionen.</p>
+          </article>
+          <article class="card">
+            <h3>Open Source</h3>
+            <p class="meta">MIT-Lizenz – nutze, ändere, teile. Community-Beiträge willkommen!</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="download">
+      <div class="container">
+        <h2 class="section-title">Download</h2>
+        <div class="download">
+          <div class="card dl-card">
+            <span class="tag">Windows</span>
+            <h3>Installer (empfohlen)</h3>
+            <p class="meta">Enthält Uninstaller & Startmenü-Einträge. Signiert empfohlen.</p>
+            <div class="dl-actions">
+              <a class="btn primary" href="downloads/BeyondApp_Setup.exe" download>Download .exe</a>
+              <a class="btn" href="https://github.com/DEIN-USER/DEIN-REPO/releases" target="_blank" rel="noopener">Alle Releases</a>
+            </div>
+          </div>
+          <div class="card dl-card">
+            <span class="tag">Windows (Portable)</span>
+            <h3>ZIP (ohne Installation)</h3>
+            <p class="meta">Einfach entpacken & starten. Ideal für USB-Stick.</p>
+            <div class="dl-actions">
+              <a class="btn" href="downloads/BeyondApp_Portable.zip" download>Download .zip</a>
+              <a class="btn" href="#faq">Prüfsumme</a>
+            </div>
+          </div>
+        </div>
+        <p class="meta" style="margin-top:12px">Lege deine Dateien in <code>/downloads</code> ab oder verlinke GitHub Releases direkt.</p>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <h2 class="section-title">FAQ</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Wie aktiviere ich GitHub Pages?</h3>
+            <p class="meta">Repo → Einstellungen → „Pages“ → Branch <em>main</em> und Ordner <em>/</em> oder <em>/docs</em> wählen. Danach ist die Seite unter <code>https://DEIN-USER.github.io/DEIN-REPO</code> erreichbar.</p>
+          </div>
+          <div class="card">
+            <h3>Wie biete ich Downloads an?</h3>
+            <p class="meta">Leg die Dateien in <code>/downloads</code> ab und verlinke sie (siehe oben). Für Dateien &gt;100MB nutze GitHub Releases.</p>
+          </div>
+          <div class="card">
+            <h3>Welches Lizenzmodell nutzt BeyondApp?</h3>
+            <p class="meta">MIT. Füge eine <code>LICENSE</code>-Datei im Repo hinzu und nenne die Lizenz im Footer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>BeyondApp</strong><br/>
+        <span class="meta">© <span id="year"></span> BeyondSoft · MIT-Lizenz</span>
+      </div>
+      <div class="meta" style="text-align:right">
+        <a href="#">Impressum</a> · <a href="#">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
