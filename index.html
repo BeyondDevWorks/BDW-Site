@@ -1,180 +1,49 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Beyond Development</title>
-  <meta name="description" content="Beyond Development – moderne Desktop-Apps, Tools und Open-Source." />
-  <link rel="icon" href="assets/img/logo.png" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond Development Hub</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Header / Nav -->
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#home" data-tab="home">
-        <img src="assets/img/logo.png" alt="Logo" />
-        <span>Beyond Development</span>
-      </a>
-      <nav class="nav-links">
-        <button class="nav-link" data-tab="home">Start</button>
-        <button class="nav-link" data-tab="features">Features</button>
-        <button class="nav-link" data-tab="download">Download</button>
-        <button class="nav-link" data-tab="faq">FAQ</button>
-        <button class="nav-link" data-tab="contact">Kontakt</button>
-        <button id="themeToggle" class="ghost" aria-label="Theme wechseln">🌙</button>
-      </nav>
-    </div>
-  </header>
+    <header>
+        <h1>Beyond Development Hub</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="apps.html">Apps</a>
+            <a href="datenschutz.html">Datenschutz</a>
+            <a href="impressum.html">Impressum</a>
+        </nav>
+    </header>
 
-  <main>
-    <!-- HOME -->
-    <section id="home" class="tab active">
-      <div class="container hero">
-        <div class="hero-grid">
-          <div class="hero-text reveal">
-            <h1 class="title">Build. Ship. <span class="accent">Beyond</span>.</h1>
-            <p class="subtitle">
-              Tools & Desktop-Apps mit Fokus auf Performance, klare UIs und einfache Bedienung.
-            </p>
-            <div class="cta">
-              <a class="btn primary" data-tab="download" href="#download">Jetzt herunterladen</a>
-              <a class="btn" target="_blank" rel="noopener" href="https://github.com/DEIN-USER/DEIN-REPO">GitHub</a>
+    <main>
+        <section class="hero">
+            <h2>Willkommen zu unserem App-Hub!</h2>
+            <p>Hier findest du alle unsere Anwendungen übersichtlich an einem Ort.</p>
+            <a href="apps.html" class="btn-primary">Zu den Apps</a>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <h3>Schnell & Einfach</h3>
+                <p>Alle Apps zentral auf einer Plattform.</p>
             </div>
-            <div class="meta">Aktuelle Version: <strong id="versionLabel">v1.0.0</strong></div>
-          </div>
-          <div class="hero-card reveal">
-            <div class="mock">Screenshot / App-Preview (assets/img/screenshot.png)</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section id="features" class="tab">
-      <div class="container section">
-        <h2 class="section-title">Features</h2>
-
-        <div class="searchbar">
-          <input id="featureSearch" type="search" placeholder="Features durchsuchen …" />
-        </div>
-
-        <div id="featureList" class="grid cards">
-          <article class="card reveal" data-tags="webradio stream audio">
-            <h3>Webradio & Streams</h3>
-            <p>Favoriten, Suche und schnelle Senderwechsel. AAC/MP3 kompatibel.</p>
-          </article>
-          <article class="card reveal" data-tags="vlc media engine">
-            <h3>VLC Engine</h3>
-            <p>Zuverlässige Wiedergabe dank libVLC – viele Formate, stabil im Dauerbetrieb.</p>
-          </article>
-          <article class="card reveal" data-tags="ui design dark theme">
-            <h3>Dunkles Theme</h3>
-            <p>Kontraststarkes UI mit sanften Animationen und klarer Typografie.</p>
-          </article>
-          <article class="card reveal" data-tags="playlist library">
-            <h3>Playlist-Management</h3>
-            <p>Hinzufügen, Entfernen, Sortieren; Status in AppData gesichert.</p>
-          </article>
-          <article class="card reveal" data-tags="portable installer">
-            <h3>Portable & Installer</h3>
-            <p>Wahlweise portable ZIP oder Setup mit Uninstaller.</p>
-          </article>
-          <article class="card reveal" data-tags="opensource mit license">
-            <h3>Open Source</h3>
-            <p>MIT-Lizenz – nutze, ändere, teile. Contributions willkommen.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- DOWNLOAD -->
-    <section id="download" class="tab">
-      <div class="container section">
-        <h2 class="section-title">Download</h2>
-
-        <div class="grid two">
-          <div class="card reveal">
-            <div class="tag">Windows – Installer</div>
-            <h3>BeyondApp Setup</h3>
-            <p>Empfohlen für die meisten Nutzer. Enthält Uninstaller & Startmenü-Einträge.</p>
-            <div class="row">
-              <a class="btn primary" href="downloads/BeyondApp_Setup.exe" download>Download .exe</a>
-              <button class="btn" id="copyHashBtn" data-copy="#sha256">SHA-256 kopieren</button>
+            <div class="feature-card">
+                <h3>Interaktiv</h3>
+                <p>Direkt über die Website starten oder Details ansehen.</p>
             </div>
-            <code id="sha256" class="code">DEINE-PRUEFSUMME-HIER</code>
-          </div>
-
-          <div class="card reveal">
-            <div class="tag">Windows – Portable</div>
-            <h3>BeyondApp Portable</h3>
-            <p>Ohne Installation. Ideal für USB-Sticks und Sandbox-Tests.</p>
-            <div class="row">
-              <a class="btn" href="downloads/BeyondApp_Portable.zip" download>Download .zip</a>
-              <a class="btn ghost" target="_blank" rel="noopener" href="https://github.com/DEIN-USER/DEIN-REPO/releases">Alle Releases</a>
+            <div class="feature-card">
+                <h3>Datenschutz & Recht</h3>
+                <p>Impressum und Datenschutz leicht zugänglich.</p>
             </div>
-          </div>
-        </div>
+        </section>
+    </main>
 
-        <p class="meta">Tipp: Große Dateien (>100 MB) lieber über <strong>GitHub Releases</strong> verlinken.</p>
-      </div>
-    </section>
+    <footer>
+        <p>&copy; 2025 Beyond Development. Alle Rechte vorbehalten.</p>
+    </footer>
 
-    <!-- FAQ -->
-    <section id="faq" class="tab">
-      <div class="container section">
-        <h2 class="section-title">FAQ</h2>
-
-        <div class="accordion">
-          <details class="reveal">
-            <summary>Wie aktiviere ich GitHub Pages?</summary>
-            <div>Repo → <em>Settings</em> → <em>Pages</em> → Branch <code>main</code>, Ordner <code>/</code> oder <code>/docs</code>.</div>
-          </details>
-
-          <details class="reveal">
-            <summary>Wie ändere ich die angezeigte Version?</summary>
-            <div>In der <code>index.html</code> das Element <code>#versionLabel</code> anpassen (z. B. <code>v1.2.3</code>). Du aktualisierst die Version selbst.</div>
-          </details>
-
-          <details class="reveal">
-            <summary>Warum warnt Windows bei „Unbekannter Herausgeber“?</summary>
-            <div>Ohne Codesignatur zeigt Windows „Unbekannt“. Mit Code-Signing-Zertifikat wird dein Name/Firma angezeigt.</div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- KONTAKT -->
-    <section id="contact" class="tab">
-      <div class="container section">
-        <h2 class="section-title">Kontakt</h2>
-        <form class="card reveal form" action="https://formspree.io/f/DEIN-FORMSPREE-ID" method="POST">
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" name="name" required />
-          </div>
-          <div class="field">
-            <label for="email">E-Mail</label>
-            <input id="email" name="email" type="email" required />
-          </div>
-          <div class="field">
-            <label for="msg">Nachricht</label>
-            <textarea id="msg" name="message" rows="5" required></textarea>
-          </div>
-          <button class="btn success" type="submit">Senden</button>
-          <p class="meta">Hinweis: Formularservice via Formspree – kein eigener Server nötig.</p>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container foot">
-      <span>© <span id="year"></span> Beyond Development · MIT-Lizenz</span>
-      <span class="muted"><a href="#" rel="nofollow">Impressum</a> · <a href="#" rel="nofollow">Datenschutz</a></span>
-    </div>
-  </footer>
-
-  <script src="assets/js/script.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
