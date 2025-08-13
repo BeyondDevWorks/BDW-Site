@@ -21,7 +21,7 @@ body{
   color:var(--text);
 }
 a{color:var(--accent);text-decoration:none}
-.container{max-width:1100px; margin:0 auto; padding:0 20px}
+.container{max-width:1100px; margin:0 auto; padding:0 15px}
 
 body::-webkit-scrollbar {
   display: none;                  /* Chrome, Safari, Edge */
@@ -157,4 +157,147 @@ details[open] summary{color:var(--accent)}
 @media (max-width: 640px){
   .title{font-size:34px}
   .grid.cards{grid-template-columns:1fr}
+  .hero-grid {
+    grid-template-columns: 1fr; /* alles in eine Spalte */
+  }
+  /* Container im Header untereinander */
+  .site-header .container.nav {
+    display: flex;
+    flex-direction: column; /* Überschrift oben, Nav darunter */
+    align-items: center;    /* zentriert */
+    gap: 10px;              /* Abstand zwischen Brand und Nav */
+  }
+
+  /* Navigation-Links untereinander */
+  .nav-links {
+    display: flex;
+    flex-direction: row;; /* untereinander */
+    gap: 8px;               /* Abstand zwischen Links */
+    width: 100%;            /* optional: volle Breite */
+    text-align: center;     /* schön zentriert */
+  }
+
+  /* Links selbst anpassen */
+  .nav-link {
+    width: 100%;            /* volle Breite des Containers */
+    padding: 8px 0;         /* vertikales Padding */
+    box-sizing: border-box; /* Padding wird in Breite gerechnet */
+  }
+
+  /* Brand (Logo + Text) optional zentrieren */
+  .brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .brand img {
+    max-width: 150px; /* skaliert auf kleinen Screens */
+    height: auto;
+  }
+  .grid.cards {
+    grid-template-columns: 1fr;
+  }
+  body {
+    font-size: 14px; /* kleiner als Desktop, z. B. Desktop 16px */
+  }
+
+  h1 {
+    font-size: 24px; /* Überschriften anpassen */
+  }
+
+    /* Allgemeine Schriftgröße für Paragraphen */
+  p {
+    font-size: 14px; /* kleiner, gut lesbar auf Handys */
+    line-height: 1.5; /* angenehmer Zeilenabstand */
+  }
+
+  /* Hauptüberschrift */
+  h1.title {
+    font-size: 24px; /* kleiner als Desktop, aber auffällig */
+    line-height: 1.2;
+  }
+
+  /* Unterüberschriften */
+  h2 {
+    font-size: 18px; /* kleiner, aber noch klar erkennbar */
+    line-height: 1.3;
+  }
+
+  /* Container-Padding anpassen */
+  .container.hero {
+    padding: 10px 15px; /* Abstand zum Bildschirmrand */
+  }
+
+  /* Optional: Hero-Text zentrieren */
+  .hero-text {
+    text-align: center;
+  }
+
+  /* Optional: Navigation und Buttons auch anpassen */
+  .nav-link {
+    font-size: 14px;
+  }
+    /* Footer-Container untereinander */
+  .site-footer .container.foot {
+    display: flex;
+    flex-direction: column; /* alles untereinander */
+    align-items: center;    /* zentriert */
+    gap: 5px;               /* Abstand zwischen Texten/Links */
+    text-align: center;     /* alles schön zentriert */
+  }
+
+  /* Links im Footer untereinander oder inline, je nach Platz */
+  .site-footer .muted a {
+    display: inline-block;  /* erlaubt Padding/Breite */
+    width: auto;            /* flexible Breite */
+    max-width: 100%;        /* nicht über Container hinaus */
+    padding: 4px 6px;       /* optional: Abstand um Links */
+    box-sizing: border-box;
+    word-break: break-word; /* lange Wörter umbrechen */
+  }
+
+  /* Optional: Schriftgröße kleiner auf Handy */
+  .site-footer {
+    font-size: 12px;
+  }
+  /* Alles in Containern zentrieren */
+  body, 
+  header, 
+  main, 
+  footer {
+    text-align: center; /* Texte zentrieren */
+  }
+
+  /* Buttons und Links zentrieren */
+  button, 
+  .nav-link, 
+  a {
+    display: inline-block; /* erlaubt Padding und Zentrierung */
+    text-align: center;
+    margin: 5px auto;      /* Abstand nach oben/unten, mittig */
+  }
+
+  /* Container-Inhalte zentrieren */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Hero-Grid und Karten untereinander zentrieren */
+  .hero-grid, 
+  .grid.cards {
+    grid-template-columns: 1fr; /* alles untereinander */
+    gap: 15px;
+    justify-items: center;       /* Grid-Items mittig */
+  }
+
+  /* Footer zentrieren */
+  .site-footer .container.foot {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
 }
