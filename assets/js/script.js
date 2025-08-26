@@ -61,7 +61,7 @@ if(copyBtn){
 
 
 const appImages = {
-  app1: ['assets/img/beyondmusic_show2.png', 'assets/img/beyondmusic_show.png'],
+  app1: ['assets/img/beyondmusic_show2.png', 'assets/img/beyondmusic_show.png', 'assets/img/beyondmusic_show3.png', 'assets/img/beyondmusic_show4.png',],
   app2: ['app2-1-gross.jpg', 'app2-2-gross.jpg']
 };
 
